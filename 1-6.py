@@ -7,14 +7,13 @@ class animal():
     def __init__(self, name, weight):
         self.name = name
         self.weight = weight
+        animal_list.append(self)
 
     def init_voiceline(self):
         print(f'{self.voiceline}!')
 
-    def feed(self, food_weight):
-        if food_weight <= 0:
-            print('I see what you\'re doing here!')
-        else:
+    def feed(self):
+            print(f'You\'ve fed {self.name}')
             self.hunger_state = 'fed'
             self.init_voiceline()
 
@@ -65,7 +64,16 @@ class goose(chicken):
 
 
 ################################################################
+def weight_analysis(list):
+    counter = 0
+    fatty = list[0]
+    for animal in list:
+        counter += animal.weight
+        if animal.weight > fatty.weight:
+            fatty = animal
+    print(f'Total weight is {counter} kg, the heaviest animal is {fatty.name}.')
 
+animal_list = []
 goose1 = goose('Серый', 5)
 goose2 = goose('Белый', 6)
 cow1 = cow('Манька', 747)
@@ -76,3 +84,5 @@ chick2 = chicken('Ко-Ко', 3)
 goat1 = goat('Рога', 120)
 goat2 = goat('Рога', 110)
 duck1 = duck('Кряква', 5)
+
+weight_analysis(animal_list)
