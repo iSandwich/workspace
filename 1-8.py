@@ -36,16 +36,20 @@ def shopping_list(dishes, person_count):
   return products
 
 
-dishes = ['Омлет', 'Фахитос']
-person_count = 4
+def main():
+  dishes = ['Омлет', 'Фахитос']
+  person_count = 4
 
-dict1 = cooking_book()
-dict2 = shopping_list(dishes, person_count)
+  dict1 = cooking_book()
+  dict2 = shopping_list(dishes, person_count)
 
-for dish in dict1:
-    print (dish)
-    for product in dict1[dish]:
-      print(product)
-print()
-for product in dict2:
-  print(product, dict2[product])
+  for dish in dict1:
+      print (dish)
+      for product in dict1[dish]:
+        print(product)
+  print()
+  for product in dict2:
+    print(product, dict2[product])
+
+    
+main()
