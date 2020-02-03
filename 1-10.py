@@ -14,9 +14,9 @@ def data_import():
     json_contains = json.load(json_file)
     words_list = []
     for item in json_contains['rss']['channel']['items']:
-      temp_title = item['title'].split()
+      temp_title = item['title'].lower().split()
       words_list.extend(extract(temp_title))
-      temp_description = item['description'].split()
+      temp_description = item['description'].lower().split()
       words_list.extend(extract(temp_description))
     rating(words_list)
 
@@ -27,9 +27,9 @@ def data_import_2():
   items = root.findall('channel/item')
   words_list = []
   for item in items:
-    temp_title = item.find('title').text.split()
+    temp_title = item.find('title').text.lower().split()
     words_list.extend(extract(temp_title))
-    temp_description = item.find('description').text.split()
+    temp_description = item.find('description').text.lower().split()
     words_list.extend(extract(temp_description))
   rating(words_list)
 
